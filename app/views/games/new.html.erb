@@ -1,2 +1,15 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+
+<h3>Congrats Hoster, You Can Now Enter a new <strong>Game </strong>:</h3>
+
+
+<%= simple_form_for @game do |f| %>
+
+  <%= f.input :title %>
+  <%= f.input :address %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :time_flexible, as: :radio_buttons %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+
+<% end %>
