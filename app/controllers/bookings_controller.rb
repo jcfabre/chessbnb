@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    @bookings = Booking.all
   end
 
   def show
