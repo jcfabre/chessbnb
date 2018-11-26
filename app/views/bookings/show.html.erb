@@ -1,2 +1,8 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1><%= @booking.game.title %></h1>
+
+<ul>
+  <li><%= @booking.user%> wants to play with you</li>
+  <li><%= @booking.game.description %></li>
+  <li><%= @booking.game.address %></li>
+</ul>
+
