@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show]
+
   def udpate
   end
 
@@ -19,5 +21,9 @@ class BookingsController < ApplicationController
   end
 
   def create
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
