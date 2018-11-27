@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  before_action :set_game, only: [:show, :edit, :update, :destroy]
+
   def show
   end
 
@@ -6,9 +8,17 @@ class GamesController < ApplicationController
   end
 
   def new
+    @game = Game.new
   end
 
   def create
+    @user = current_user
+    @game = Game.new(game_params)
+    if @game.save!
+      redirect_to game_path(@game)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -19,5 +29,15 @@ class GamesController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:title, :address, :description, :time_flexible, :start_date, :end_date, :time_control)
+  end
+
+  def set_game
+    @game = Game.find(params[:id])
   end
 end
