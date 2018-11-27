@@ -1,0 +1,34 @@
+.game-show-card {
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  padding: 10px;
+  background: #F8F9FA;
+  margin:10px;
+  border-radius: 2px;
+}
+
+.wrapper {
+  background: white;
+}
+
+.map {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
+.margin-top-negative {
+  margin-top: -75px;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.player-info {
+  flex: 0 0 40%;
+  text-align: center;
+}
+
+.text-align-center {
+  text-align: center;
+}

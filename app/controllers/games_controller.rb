@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def show
+    @user = @game.user
   end
 
   def edit
@@ -31,6 +32,11 @@ class GamesController < ApplicationController
   end
 
   def update
+    if @game.update(game_params)
+      redirect_to @game
+    else
+      render :edit
+    end
   end
 
   private
