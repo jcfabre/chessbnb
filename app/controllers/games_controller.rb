@@ -12,6 +12,9 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    authorize @game
+    @game.destroy
+    redirect_to games_path
   end
 
   def index
