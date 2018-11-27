@@ -31,7 +31,7 @@ user3.save!
     email: Faker::Internet.email("#{first_name} #{last_name}" , '.'),
     password: 'valid_password'
   )
-
+  
   5.times do
     game = Game.new(
       title: Faker::GreekPhilosophers.quote,

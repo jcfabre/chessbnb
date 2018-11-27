@@ -10,7 +10,10 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary', '~> 1.9.1'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'

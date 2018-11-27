@@ -1,17 +1,19 @@
-<h1>Games</h1>
+
 
 <div class="container">
   <div class="row">
     <% @games.each do |game| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <div class="card-category"><%= game.user.first_name %></div>
-          <div class="card-description">
-            <h2><%= game.title %></h2>
-            <p><%= game.description %></p>
-            <p><%= link_to "Create a booking", new_game_booking_path(game) %></p>
-          </div>
-          </div>
+        <div class="card" style="background-image: url('<%= cl_image_path game.photo%>')">
+          <%= link_to game_path(game) do %>
+            <span class="top-link"></span>
+          <% end %>
+            <div class="card-category"><%= game.user.first_name %></div>
+            <div class="card-description">
+              <h2><%= game.title %></h2>
+              <p><%= game.description %></p>
+            </div>
+        </div>
       </div>
     <% end %>
   </div>
