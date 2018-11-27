@@ -1,2 +1,9 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+
+<div class="container">
+  <h1> New booking </h1>
+</div>
+
+<%= simple_form_for [@game, @booking] do |f| %>
+  <%= f.submit "Create Booking" %>
+<% end %>
+
