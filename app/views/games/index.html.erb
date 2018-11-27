@@ -1,25 +1,19 @@
-<<<<<<< HEAD
-<h1>All Games Open</h1>
-
-<% @games.each do |g| %>
-  <%= g.user_id.first_name %>
-  <%= g.title %>
-  <%= g.address %>
-  <%= g.start_date %>
-  <%= g.end_date %>
-<% end %>
-=======
 <h1>Games</h1>
 
-<ul>
-  <% @games.each do |game| %>
-    <li>
-      <%= game.title %>
-      <%= game.description %>
-      <%= link_to "Create a booking", new_game_booking_path(game) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% @games.each do |game| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card">
+          <div class="card-category"><%= game.user.first_name %></div>
+          <div class="card-description">
+            <h2><%= game.title %></h2>
+            <p><%= game.description %></p>
+            <p><%= link_to "Create a booking", new_game_booking_path(game) %></p>
+          </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-
->>>>>>> 9b8f923297508d22451ee2ed57030af185236e29
