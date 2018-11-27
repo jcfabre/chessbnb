@@ -1,15 +1,5 @@
 
-<h3>Congrats Hoster, You Can Now Enter a new <strong>Game </strong>:</h3>
+<h3>Congrats Hoster, Let's enter a new <strong>Game </strong>:</h3>
 
+<%= render 'shared/form' %>
 
-<%= simple_form_for @game do |f| %>
-
-  <%= f.input :title %>
-  <%= f.input :address %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :time_flexible, as: :radio_buttons %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-
-<% end %>
