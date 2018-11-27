@@ -31,6 +31,11 @@ class GamesController < ApplicationController
   end
 
   def update
+    if @game.update(game_params)
+      redirect_to @game
+    else
+      render :edit
+    end
   end
 
   private
