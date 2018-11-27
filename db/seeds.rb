@@ -1,9 +1,9 @@
-user1 = User.new(email: "jcharlesfabre@gmail.com")
+user1 = User.new(email: "jcharlesfabre@gmail.com", first_name: "jc", last_name: "fabre")
 user1.password = 'valid_password'
 user1.password_confirmation = 'valid_password'
 user1.save!
 
-user2 = User.new(email: "toto@gmail.com")
+user2 = User.new(email: "toto@gmail.com", first_name: "toto", last_name: "alfred")
 user2.password = 'valid_password'
 user2.password_confirmation = 'valid_password'
 user2.save!
