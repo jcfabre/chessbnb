@@ -14,6 +14,8 @@ class GamesController < ApplicationController
   def create
     @user = current_user
     @game = Game.new(game_params)
+    @game.user = @user
+    @game.time_control = TimeControl.find(game_params[:time_control_id])
     if @game.save!
       redirect_to game_path(@game)
     else
@@ -25,7 +27,7 @@ class GamesController < ApplicationController
   end
 
   def index
-
+    @games = Game.all
   end
 
   def update
@@ -34,7 +36,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:title, :address, :description, :time_flexible, :start_date, :end_date, :time_control)
+    params.require(:game).permit(:title, :address, :description, :time_flexible, :start_date, :end_date, :time_control_id)
   end
 
   def set_game

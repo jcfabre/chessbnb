@@ -1,2 +1,13 @@
-<h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
+<h1>Games</h1>
+
+<ul>
+  <% @games.each do |game| %>
+    <li>
+      <%= game.title %>
+      <%= game.description %>
+      <%= link_to "Create a booking", new_game_booking_path(game) %>
+    </li>
+  <% end %>
+</ul>
+
+
