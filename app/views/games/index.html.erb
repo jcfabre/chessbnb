@@ -1,10 +1,9 @@
-
-
-<div class="container">
-  <div class="row">
+<div class="main-container">
+  <div class="cards-container">
+    <div class="row card-box">
     <% @games.each do |game| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: url('<%= cl_image_path game.photo, height: "300", width: "400", quality:"auto:low"%>')">
+      <div class="col-xs-4 col-sm-6">
+        <div class="card" style="background-image: url('<%= cl_image_path game.photo, height: "400", width: "500", quality:"auto:low"%>')">
           <%= link_to game_path(game) do %>
             <span class="top-link"></span>
           <% end %>
@@ -16,11 +15,13 @@
         </div>
       </div>
     <% end %>
+    </div>
+  </div>
+  <div id="map">
   </div>
 </div>
-<div id="map-container" style="position: relative">
-  <div id="map" style="width: 50%; height: 400px; left: 150px"></div>
-</div>
+
+
 <script>
   function initMap() {
     // Create a map object and specify the DOM element for display.
