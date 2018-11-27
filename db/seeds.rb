@@ -21,7 +21,7 @@ user3.password = 'ikv.q7KT_hS)'
 user3.password_confirmation = 'ikv.q7KT_hS)'
 user3.save!
 
-20.times do
+10.times do
   first_name = Faker::Superhero.prefix
   last_name = Faker::Ancient.god
 
@@ -31,36 +31,34 @@ user3.save!
     email: Faker::Internet.email("#{first_name} #{last_name}" , '.'),
     password: 'valid_password'
   )
+
+  5.times do
+    game = Game.new(
+      title: Faker::GreekPhilosophers.quote,
+      address: Faker::Address.full_address,
+      description: Faker::Lorem.paragraph(2, true),
+      # remote_photo_url: Faker::LoremFlickr.grayscale_image,
+      start_date: Time.now.to_datetime,
+      end_date: Time.now.to_datetime.end_of_day
+    )
+    game.user = User.last
+    game.time_control = array_time_control.shuffle[0]
+    game.save!
+  end
+
 end
 
-# game1 = Game.new(title: "Game in Paris", description: "Any kind of player", address: Faker::Address.full_address,)
-# game1.user = user1
-# game1.time_control = time_control1
-# game1.save!
+booking1 = Booking.new
+booking1.user = User.first
+booking1.game = Game.last(3).first
+booking1.save!
 
-20.times do
-  game = Game.new(
-    title: Faker::GreekPhilosophers.quote,
-    address: Faker::Address.full_address,
-    description: Faker::Lorem.paragraph(2, true),
-    # remote_photo_url: Faker::LoremFlickr.grayscale_image,
-    start_date: Time.now.to_datetime,
-    end_date: Time.now.to_datetime.end_of_day
-  )
-  game.user = User.last
-  game.time_control = array_time_control.shuffle[0]
-  game.save!
-end
+booking2 = Booking.new
+booking2.user = User.second
+booking2.game = Game.last(2).first
+booking2.save!
 
-for index in 0..10
-  booking = Booking.new
-  booking.user = User.first
-  booking.game = Game.first
-  booking.save!
-end
-
-
-# booking1 = Booking.new
-# booking1.user = user2
-# booking1.game = game1
-# booking1.save
+booking3 = Booking.new
+booking3.user = User.third
+booking3.game = Game.last
+booking3.save!
