@@ -22,5 +22,3 @@ booking1 = Booking.new
 booking1.user = user2
 booking1.game = game1
 booking1.save
-
-
