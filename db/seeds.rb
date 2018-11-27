@@ -31,13 +31,13 @@ user3.save!
     email: Faker::Internet.email("#{first_name} #{last_name}" , '.'),
     password: 'valid_password'
   )
-  
-  5.times do
+
+  2.times do
     game = Game.new(
       title: Faker::GreekPhilosophers.quote,
       address: Faker::Address.full_address,
       description: Faker::Lorem.paragraph(2, true),
-      # remote_photo_url: Faker::LoremFlickr.grayscale_image,
+      remote_photo_url: "http://paris1900.lartnouveau.com/paris14/parc_montsouris/accueil/1p_monts5.jpg",
       start_date: Time.now.to_datetime,
       end_date: Time.now.to_datetime.end_of_day
     )
