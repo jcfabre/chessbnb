@@ -39,6 +39,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def list
+    @games = Game.where(user: current_user)
+  end
+
   private
 
   def game_params

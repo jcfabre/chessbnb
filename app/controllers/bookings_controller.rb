@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
   end
 
   def show
@@ -33,6 +33,10 @@ class BookingsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def list
+    @bookings = Booking.where(user: current_user)
   end
 
   private
