@@ -20,6 +20,7 @@ time_control3 = TimeControl.create(name: "Classic", duration: 100)
 game1 = Game.new(title: "Game in Paris", description: "Any kind of player")
 game1.user = user1
 game1.time_control = time_control1
+game1.remote_photo_url = "https://res.cloudinary.com/doojphhb7/image/upload/v1542995361/image.jpg"
 game1.save!
 
 
