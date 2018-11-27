@@ -5,7 +5,6 @@ class GamesController < ApplicationController
   end
 
   def edit
-
   end
 
   def new
