@@ -7,6 +7,7 @@
       <%= f.input :time_flexible, as: :radio_buttons %>
       <%= f.input :start_date %>
       <%= f.input :end_date %>
+      <%= f.association :time_control %>
       <%= f.button :submit, class: "btn-orange" %>
     <% end %>
   </div>
