@@ -1,29 +1,37 @@
 <div class="container">
-<p>Hello <%= current_user.first_name.downcase.capitalize %></p>
+  <p>Hello <%= current_user.first_name.downcase.capitalize %></p>
 
-<div class="tabs">
-  <a href="#" class="tab active">Bookings</a>
-  <a href="#" class="tab">Hosting Games</a>
-</div>
+  <% if @bookings.empty? %>
+    <p>No bookings yet <%= current_user.first_name.downcase.capitalize %>, find games nearby : <%= link_to "here", games_path%>
+    </p>
 
-<ul class="inbox">
-  <% @bookings.each do |booking| %>
-    <li class="message">
-      <img src="images/gab.png" alt="" class="avatar-large">
-      <div class="message-name">
-        <h3><%= booking.user.first_name %></h3>
-        <p><%= booking.game.start_date %></p>
-      </div>
-      <div class="message-body">
-        <p><strong><%= booking.game.title %></strong></p>
-        <p><%= booking.game.description %></p>
-        <p>Addresse: <%= booking.game.address %></p>
-      </div>
-      <div class="message-status">
-        <p class="status accepted">Booked</p>
-      </div>
-    </li>
+  <% else %>
+
+    <div class="tabs">
+      <a href="#" class="tab active">Bookings</a>
+      <a href="#" class="tab">Hosting Games</a>
+    </div>
+
+    <ul class="inbox">
+      <% @bookings.each do |booking| %>
+        <li class="message">
+          <img src="images/gab.png" alt="" class="avatar-large">
+          <div class="message-name">
+            <h3><%= booking.user.first_name %></h3>
+            <p><%= booking.game.start_date %></p>
+          </div>
+          <div class="message-body">
+            <p><strong><%= booking.game.title %></strong></p>
+            <p><%= booking.game.description %></p>
+            <p>Addresse: <%= booking.game.address %></p>
+          </div>
+          <div class="message-status">
+            <p class="status accepted">Booked</p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
   <% end %>
-</ul>
-
 </div>
+

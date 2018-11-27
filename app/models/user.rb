@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true, allow_blank: false
 
+  has_many :games
+  has_many :bookings
+
   def full_name
     "#{first_name} #{last_name}"
   end
