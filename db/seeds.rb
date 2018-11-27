@@ -8,6 +8,11 @@ user2.password = 'valid_password'
 user2.password_confirmation = 'valid_password'
 user2.save!
 
+user3 = User.new(email: "tomc@gmail.com", first_name: "tom", last_name: "cruz")
+user3.password = 'valid_password'
+user3.password_confirmation = 'valid_password'
+user3.save!
+
 time_control1 = TimeControl.create(name: "Blitz", duration: 5)
 time_control2 = TimeControl.create(name: "Rapid", duration: 20)
 time_control3 = TimeControl.create(name: "Classic", duration: 100)
