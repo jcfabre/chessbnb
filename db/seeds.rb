@@ -38,66 +38,24 @@ end
 # game1.time_control = time_control1
 # game1.save!
 
-5.times do
+20.times do
   game = Game.new(
     title: Faker::GreekPhilosophers.quote,
     address: Faker::Address.full_address,
     description: Faker::Lorem.paragraph(2, true),
-    remote_photo_url: Faker::LoremFlickr.grayscale_image,
+    # remote_photo_url: Faker::LoremFlickr.grayscale_image,
     start_date: Time.now.to_datetime,
     end_date: Time.now.to_datetime.end_of_day
   )
   game.user = User.last
-  game.time_control = array_time_control.rand
-  game.save!
-end
-
-5.times do
-  game = Game.new(
-    title: Faker::GreekPhilosophers.quote,
-    address: Faker::Address.full_address,
-    description: Faker::Lorem.paragraph(2, true),
-    remote_photo_url: Faker::LoremFlickr.grayscale_image,
-    start_date: Time.now.to_datetime,
-    end_date: Time.now.to_datetime.end_of_day
-  )
-  game.user = User.last
-  game.time_control = array_time_control.rand
-  game.save!
-end
-
-5.times do
-  game = Game.new(
-    title: Faker::GreekPhilosophers.quote,
-    address: Faker::Address.full_address,
-    description: Faker::Lorem.paragraph(2, true),
-    remote_photo_url: Faker::LoremFlickr.grayscale_image,
-    start_date: Time.now.to_datetime,
-    end_date: Time.now.to_datetime.end_of_day
-  )
-  game.user = User.last
-  game.time_control = array_time_control.rand
-  game.save!
-end
-
-5.times do
-  game = Game.new(
-    title: Faker::GreekPhilosophers.quote,
-    address: Faker::Address.full_address,
-    description: Faker::Lorem.paragraph(2, true),
-    remote_photo_url: Faker::LoremFlickr.grayscale_image,
-    start_date: Time.now.to_datetime,
-    end_date: Time.now.to_datetime.end_of_day
-  )
-  game.user = User.last
-  game.time_control = array_time_control.rand
+  game.time_control = array_time_control.shuffle[0]
   game.save!
 end
 
 for index in 0..10
   booking = Booking.new
-  booking.user = User.last
-  booking.game = Game.last
+  booking.user = User.first
+  booking.game = Game.first
   booking.save!
 end
 
