@@ -1,8 +1,20 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "chess-rise-logo.png", height: 50 %>
+
+  <% if user_signed_in? %>
+  <!-- logo redirection to all games when logged in -->
+    <%= link_to games_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "chess-rise-logo.png", height: 50 %>
+    <% end %>
+
+    <% else %>
+    <!-- logo redirection to home page when logged out -->
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "chess-rise-logo.png", height: 50 %>
+    <% end %>
   <% end %>
+
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -17,7 +29,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "Bobby_Fischer.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= cl_image_tag(current_user.photo, :width=>30, :height=>30, :gravity=>"face", :crop=>"thumb", class: "avatar-resizable dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to user_path(current_user) do %>
@@ -38,7 +50,8 @@
         </div>
       </div>
     <% else %>
-      <!-- Login link (when logged out) -->
+      <!-- Login and signup links (when logged out) -->
+      <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
