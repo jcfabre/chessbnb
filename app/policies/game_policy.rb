@@ -22,6 +22,11 @@ class GamePolicy < ApplicationPolicy
     record.user == user  # Anyone can create a restaurant
   end
 
+  def list?
+    record.all? { |game| game.user == user }
+    # record.user == user  # Anyone can create a restaurant
+  end
+
   def update?
     record.user == user # Only restaurant creator can update it
   end
