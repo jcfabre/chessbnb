@@ -7,17 +7,27 @@ time_control2 = TimeControl.create(name: "Rapid", duration: 20)
 time_control3 = TimeControl.create(name: "Classic", duration: 100)
 array_time_control = [time_control1, time_control2, time_control3]
 
-user1 = User.new(email: "jcharlesfabre@gmail.com", first_name: "jc", last_name: "fabre")
+user1 = User.new(email: "jcharlesfabre@gmail.com", first_name: "jc", last_name: "fabre",remote_photo_url: "https://media.licdn.com/dms/image/C5603AQFuzemgK3RraA/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=KG9iHP1L2g5AIfRtI0lwm21ybixd_hMbK5-v-jdg4i4")
 user1.password = 'valid_password'
 user1.password_confirmation = 'valid_password'
 user1.save!
 
-user2 = User.new(email: "toto@gmail.com", first_name: "toto", last_name: "Alfred")
+user2 = User.new(email: "toto@gmail.com",
+  first_name: "toto",
+  last_name: "Alfred",
+  remote_photo_url: "https://www.films-disney.fr/wp-content/uploads/2018/05/dumbo.jpg"
+)
 user2.password = 'valid_password'
 user2.password_confirmation = 'valid_password'
 user2.save!
 
-user3 = User.new(email: "connor.bubbles@yahoo.com", first_name: "connor", last_name: "bubbles")
+
+user3 = User.new(
+  email: "connor.bubbles@yahoo.com",
+  first_name: "connor",
+  last_name: "bubbles",
+  remote_photo_url:"https://cdn1.thr.com/sites/default/files/imagecache/scale_crop_768_433/2018/01/the_terminator_still.jpg"
+)
 user3.password = 'ikv.q7KT_hS)'
 user3.password_confirmation = 'ikv.q7KT_hS)'
 user3.save!
@@ -29,6 +39,7 @@ user3.save!
   User.create!(
     first_name: first_name,
     last_name: last_name,
+    remote_photo_url: "https://secure.i.telegraph.co.uk/multimedia/archive/02630/Carissa-Yip_2630479b.jpg",
     email: Faker::Internet.email("#{first_name} #{last_name}" , '.'),
     password: 'valid_password'
   )

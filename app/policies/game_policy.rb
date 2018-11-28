@@ -7,7 +7,7 @@ class GamePolicy < ApplicationPolicy
   end
 
   def new?
-    true  # Anyone can view a game
+    true  # Anyone can create a game
   end
 
   def show?
@@ -19,7 +19,7 @@ class GamePolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user  # Anyone can create a game
+    record.user == user # Only game creator can edit it
   end
 
   def list?
@@ -32,6 +32,6 @@ class GamePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user # Only game creator can delete it
+    record.user == user # Only game creator can destroy it
   end
 end

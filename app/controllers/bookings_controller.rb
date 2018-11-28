@@ -34,10 +34,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def list
-    @bookings = Booking.where(user: current_user)
-  end
-
   private
 
   def set_booking
