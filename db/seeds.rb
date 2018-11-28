@@ -65,17 +65,3 @@ user3.save!
   end
 end
 
-booking1 = Booking.new
-booking1.user = User.first
-booking1.game = Game.last(3).first
-booking1.save!
-
-booking2 = Booking.new
-booking2.user = User.second
-booking2.game = Game.last(2).first
-booking2.save!
-
-booking3 = Booking.new
-booking3.user = User.third
-booking3.game = Game.last
-booking3.save!
