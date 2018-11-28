@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'pundit'
+gem "geocoder"
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 

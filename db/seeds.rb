@@ -1,5 +1,6 @@
 require 'faker'
 
+addresses = ["11 rue Lamartine Paris", "146 avenue parmentier Paris", "3 rue de rivoli Paris", "Place d'armes Versailles", "61 Route des Tribunes 75016 Paris"]
 
 time_control1 = TimeControl.create(name: "Blitz", duration: 5)
 time_control2 = TimeControl.create(name: "Rapid", duration: 20)
@@ -35,7 +36,7 @@ user3.save!
   2.times do
     game = Game.new(
       title: Faker::GreekPhilosophers.quote,
-      address: Faker::Address.full_address,
+      address: addresses.shuffle[1],
       description: Faker::Lorem.paragraph(2, true),
       remote_photo_url: "http://paris1900.lartnouveau.com/paris14/parc_montsouris/accueil/1p_monts5.jpg",
       start_date: Time.now.to_datetime,
@@ -45,7 +46,6 @@ user3.save!
     game.time_control = array_time_control.shuffle[0]
     game.save!
   end
-
 end
 
 booking1 = Booking.new
