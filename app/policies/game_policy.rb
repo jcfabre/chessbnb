@@ -22,6 +22,11 @@ class GamePolicy < ApplicationPolicy
     record.user == user # Only game creator can edit it
   end
 
+  def list?
+    record.all? { |game| game.user == user }
+    # record.user == user  # Anyone can create a game
+  end
+
   def update?
     record.user == user # Only game creator can update it
   end

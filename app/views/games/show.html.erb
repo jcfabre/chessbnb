@@ -34,7 +34,9 @@
     <div class="col-xs-12 col-sm-4">
       <div class="game-show-card text-align-center">
         <h4>Save your spot!</h4>
-        <button class="btn btn-primary"> Book </button>
+        <% if user_signed_in? %>
+          <%= link_to "Book game", game_bookings_path(@game), method: :post ,class: "btn btn-primary" %>
+        <% end %>
         <% if policy(@game).edit? %>
           <%= link_to "Edit", edit_game_path(@game), class: "btn btn-success" %>
         <% end %>

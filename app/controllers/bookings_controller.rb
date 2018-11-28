@@ -3,17 +3,15 @@ class BookingsController < ApplicationController
   before_action :set_game, only: [:new, :create]
 
   def udpate
-  end
-
-  def new
-    @booking = Booking.new
+    authorize @booking
   end
 
   def edit
+    authorize @booking
   end
 
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = policy_scope(Booking).where(user: current_user)
   end
 
   def show
@@ -28,6 +26,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.user = current_user
     @booking.game = @game
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
