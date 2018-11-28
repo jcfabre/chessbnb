@@ -9,8 +9,9 @@ class User < ApplicationRecord
   has_many :games
   has_many :bookings
 
+  mount_uploader :photo, PhotoUploader
+
   def full_name
     "#{first_name} #{last_name}"
   end
-
 end

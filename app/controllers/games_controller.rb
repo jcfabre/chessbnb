@@ -1,8 +1,10 @@
 class GamesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def show
     @user = @game.user
+    @booking = Booking.new
     authorize @game
   end
 
@@ -36,7 +38,16 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = policy_scope(Game)
+    @games = policy_scope(Game).where.not(latitude: nil, longitude: nil)
+    # @games = policy_scope(Game)
+    # @games = Game.where.not(latitude: nil, longitude: nil)
+
+    @markers = @games.map do |game|
+      {
+        lng: game.longitude,
+        lat: game.latitude
+      }
+    end
   end
 
   def update
@@ -49,7 +60,8 @@ class GamesController < ApplicationController
   end
 
   def list
-    @games = Game.where(user: current_user)
+    @games = current_user.games
+    authorize @games
   end
 
   private
