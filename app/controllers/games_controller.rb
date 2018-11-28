@@ -50,7 +50,8 @@ class GamesController < ApplicationController
   end
 
   def list
-    @games = Game.where(user: current_user)
+    @games = current_user.games
+    authorize @games
   end
 
   private
