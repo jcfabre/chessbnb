@@ -1,10 +1,16 @@
 <div class="container">
 
   <% if @bookings.empty? %>
-    <p>No bookings yet <%= current_user.first_name.downcase.capitalize %>, find games nearby : <%= link_to "here", games_path%>
-    </p>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 centered">
+        <div class="button-show-card">
+          <p>You are not registered to any game yet</p>
+          <%= link_to "Find open games",games_path, class: "btn btn-primary"  %>
+        </div>
+      </div>
+    </div>
 
-  <% else %>
+  <% else  %>
 
     <div class="tabs">
       <a href="#" class="tab active">Bookings</a>
@@ -32,5 +38,6 @@
     </ul>
 
   <% end %>
+
 </div>
 
