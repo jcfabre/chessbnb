@@ -1,5 +1,4 @@
 <div class="container">
-  <p>Hello <%= current_user.first_name.downcase.capitalize %></p>
 
   <% if @bookings.empty? %>
     <p>No bookings yet <%= current_user.first_name.downcase.capitalize %>, find games nearby : <%= link_to "here", games_path%>
@@ -9,7 +8,6 @@
 
     <div class="tabs">
       <a href="#" class="tab active">Bookings</a>
-      <a href="#" class="tab">Hosting Games</a>
     </div>
 
     <ul class="inbox">
@@ -27,6 +25,7 @@
           </div>
           <div class="message-status">
             <p class="status accepted">Booked</p>
+            <p ><%= link_to 'Delete', booking_path(booking), :method => :delete, data: {:confirm => "Are you sure?"}%></p>
           </div>
         </li>
       <% end %>
