@@ -35,7 +35,7 @@
       <div class="game-show-card text-align-center">
         <h4>Save your spot!</h4>
         <% if user_signed_in? %>
-          <%= link_to "Book game", new_game_booking_path(@game) ,class: "btn btn-primary" %>
+          <%= link_to "Book game", game_bookings_path(@game), method: :post ,class: "btn btn-primary" %>
         <% end %>
         <% if policy(@game).edit? %>
           <%= link_to "Edit", edit_game_path(@game), class: "btn btn-success" %>
