@@ -14,7 +14,6 @@
 
     <div class="tabs">
       <a href="#" class="tab active">Bookings</a>
-      <a href="#" class="tab">Hosting Games</a>
     </div>
 
     <ul class="inbox">
@@ -32,6 +31,7 @@
           </div>
           <div class="message-status">
             <p class="status accepted">Booked</p>
+            <p ><%= link_to 'Delete', booking_path(booking), :method => :delete, data: {:confirm => "Are you sure?"}%></p>
           </div>
         </li>
       <% end %>

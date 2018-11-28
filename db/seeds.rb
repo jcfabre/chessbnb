@@ -1,3 +1,9 @@
+puts "Destroying all records..."
+Booking.destroy_all
+Game.destroy_all
+User.destroy_all
+
+
 require 'faker'
 
 addresses = ["11 rue Lamartine Paris", "146 avenue parmentier Paris", "3 rue de rivoli Paris", "Place d'armes Versailles", "61 Route des Tribunes 75016 Paris"]
