@@ -1,18 +1,24 @@
 <div class="game-container">
   <%= cl_image_tag @game.photo, class: "map make-fit"%>
   <div class="container margin-top-negative">
+
     <div class="row">
+
       <div class="col-xs-12 col-sm-8">
+
         <div class="game-show-card text-align-center">
           <h4> <%= @game.title %></h4>
           <p> Address: <em><%= @game.address %></em> </p>
           <p> <%= @game.description %></p>
         </div>
+
         <div class="game-show-card flexbox">
+
           <div class="player-info">
             <%= image_tag "Bobby_Fischer.jpg", alt: "alttext", class: "avatar-large" %>
             <p> <%= @user.full_name %></p>
           </div>
+
           <div class="game-info">
             <ul>
               <li><strong>Time control: </strong> <%= @game.time_control.name %></li>
@@ -27,23 +33,27 @@
               <li><strong>End date: </strong><%= @game.end_date %></li>
             </ul>
           </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="game-show-card text-align-center">
+          <% if user_signed_in? && @user != current_user%>
+            <h4>Save your spot!</h4>
+            <%= link_to "Book game", game_bookings_path(@game), method: :post ,class: "btn btn-primary" %>
+          <% elsif user_signed_in? && @user == current_user && policy(@game).edit? && policy(@game).destroy? %>
+            <h4>Manage your game</h4>
+            <%= link_to "Edit", edit_game_path(@game), class: "btn btn-success" %>
+            <%= link_to "Delete", game_path(@game), method: :delete, class: "btn btn-primary" %>
+          <% elsif !user_signed_in? %>
+            <h4>Sign in and book this game</h4>
+            <%= link_to "Sign in",new_user_session_path, class: "btn btn-primary"%>
+          <% end %>
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="game-show-card text-align-center">
-        <% if user_signed_in? && @user != current_user%>
-          <h4>Save your spot!</h4>
-          <%= link_to "Book game", game_bookings_path(@game), method: :post ,class: "btn btn-primary" %>
-        <% elsif user_signed_in? && @user == current_user && policy(@game).edit? && policy(@game).destroy? %>
-          <h4>Manage your game</h4>
-          <%= link_to "Edit", edit_game_path(@game), class: "btn btn-success" %>
-          <%= link_to "Delete", game_path(@game), method: :delete, class: "btn btn-primary" %>
-        <% elsif !user_signed_in? %>
-          <h4>Sign in and book this game</h4>
-          <%= link_to "Sign in",new_user_session_path, class: "btn btn-primary"%>
-        <% end %>
-      </div>
-    </div>
   </div>
+
 </div>
