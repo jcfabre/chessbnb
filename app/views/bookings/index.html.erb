@@ -1,15 +1,19 @@
 <div class="container">
-  <p>Hello <%= current_user.first_name.downcase.capitalize %></p>
 
   <% if @bookings.empty? %>
-    <p>No bookings yet <%= current_user.first_name.downcase.capitalize %>, find games nearby : <%= link_to "here", games_path%>
-    </p>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 centered">
+        <div class="button-show-card">
+          <p>You are not registered to any game yet</p>
+          <%= link_to "Find open games",games_path, class: "btn btn-primary"  %>
+        </div>
+      </div>
+    </div>
 
-  <% else %>
+  <% else  %>
 
     <div class="tabs">
       <a href="#" class="tab active">Bookings</a>
-      <a href="#" class="tab">Hosting Games</a>
     </div>
 
     <ul class="inbox">
@@ -27,11 +31,13 @@
           </div>
           <div class="message-status">
             <p class="status accepted">Booked</p>
+            <p ><%= link_to 'Delete', booking_path(booking), :method => :delete, data: {:confirm => "Are you sure?"}%></p>
           </div>
         </li>
       <% end %>
     </ul>
 
   <% end %>
+
 </div>
 
