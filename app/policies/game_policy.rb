@@ -7,26 +7,26 @@ class GamePolicy < ApplicationPolicy
   end
 
   def new?
-    true  # Anyone can view a restaurant
+    true  # Anyone can create a game
   end
 
   def show?
-    true  # Anyone can view a restaurant
+    true  # Anyone can view a game
   end
 
   def create?
-    true  # Anyone can create a restaurant
+    true  # Anyone can create a game
   end
 
   def edit?
-    record.user == user  # Anyone can create a restaurant
+    record.user == user # Only game creator can edit it
   end
 
   def update?
-    record.user == user # Only restaurant creator can update it
+    record.user == user # Only game creator can update it
   end
 
   def destroy?
-    record.user == user # Only restaurant creator can update it
+    record.user == user # Only game creator can destroy it
   end
 end
