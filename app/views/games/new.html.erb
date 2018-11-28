@@ -1,5 +1,2 @@
-<div class="container">
-  <h3>Congrats Hoster, <br>Let's enter a new <strong>Game </strong>:</h3>
-  <%= render 'shared/form' %>
-</div>
-
+<p>Welcome <%= current_user.first_name.downcase.capitalize %>, <br>Let's enter a new <strong>Game </strong>:</p>
+<%= render 'shared/form' %>

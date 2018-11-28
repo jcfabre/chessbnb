@@ -35,6 +35,9 @@
       <div class="game-show-card text-align-center">
         <h4>Save your spot!</h4>
         <button class="btn btn-primary"> Book </button>
+        <% if policy(@game).edit? %>
+          <%= link_to "Edit", edit_game_path(@game), class: "btn btn-success" %>
+        <% end %>
       </div>
     </div>
   </div>
