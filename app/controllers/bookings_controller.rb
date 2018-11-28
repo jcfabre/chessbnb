@@ -3,13 +3,11 @@ class BookingsController < ApplicationController
   before_action :set_game, only: [:new, :create]
 
   def udpate
-  end
-
-  def new
-    @booking = Booking.new
+    authorize @booking
   end
 
   def edit
+    authorize @booking
   end
 
   def index
@@ -28,6 +26,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.user = current_user
     @booking.game = @game
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else

@@ -4,6 +4,7 @@ class GamesController < ApplicationController
 
   def show
     @user = @game.user
+    @booking = Booking.new
     authorize @game
   end
 
