@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'games#index'
+  root to: 'pages#home'
   resources :games do
     collection do
       get "list", to: "games#list"
