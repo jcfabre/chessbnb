@@ -1,26 +1,10 @@
-<div class="main-container login">
-  <div class="cards-container">
-    <div class="row">
-      <p> Customize your search results:</p>
-      <%= form_tag games_path, method: :get, class: "form-inline" do %>
-        <%= text_field_tag :address, params[:address], class: "form-control",placeholder: "Location" %>
-        <% date_field :start_date, params[:start_date], class: "form-control" %>
-        <% date_field :end_date, params[:end_date], class: "form-control" %>
-        <%= select_tag :time_control, "<option disabled selected value> -- Time Control -- </option><option>Blitz</option><option>Rapid</option><option>Classic</option>".html_safe, class: "form-control" %>
-        <%= select_tag :rating, "<option disabled selected value> -- Rating -- </option><option>Pawn</option><option>Knight</option><option>Bishop</option><option>Rook</option><option>Queen</option><option>King</option>".html_safe, class: "form-control" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-    <div class="row card-box">
-    <% @games.each do |game| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <%= link_to game_path(game) do %>
-            <span class="card-link"></span>
-          <% end %>
-            <div class="card-profile">
-              <%= cl_image_tag game.user.photo,:crop=>"thumb", class: "avatar-xl", alt: "alttext" %>
-            </div>
+<div class="card-map">
+  <%= link_to game_path(game) do %>
+    <span class="card-link"></span>
+  <% end %>
+  <div class="map-card-profile">
+    <%= cl_image_tag game.user.photo, alt: "alttext", class: "avatar-xl" %>
+  </div>
             <div class="card-description">
               <div class="description-name">
                 <ul class="list-inline">
@@ -59,13 +43,4 @@
                 </ul>
               </div>
             </div>
-        </div>
-      </div>
-    <% end %>
-    </div>
-  </div>
-  <div id="map" style="width: 100%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
 </div>
-
-
