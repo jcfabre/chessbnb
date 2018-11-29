@@ -21,6 +21,8 @@ gem 'webpacker'
 gem 'devise'
 gem 'pundit'
 gem "geocoder"
+
+gem 'pg_search'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'jquery-rails'
 gem 'momentjs-rails', '>= 2.9'

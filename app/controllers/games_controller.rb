@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_policy_scoped, :only => :index
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -37,11 +38,21 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
-  def index
-    @games = policy_scope(Game).where.not(latitude: nil, longitude: nil)
-    # @games = policy_scope(Game)
-    # @games = Game.where.not(latitude: nil, longitude: nil)
+  MATCH_HASH = {"Pawn" => 1000, "Knight" => 1500, "Bishop" => 1800, "Rook" => 2000, "Queen" => 2300, "King" => 2500}
 
+  def index
+    if params[:address].present? || params[:time_control].present? || params[:rating].present?
+      sql_query = "games.address ILIKE :address \
+                  AND time_controls.name ILIKE :time_control \
+                  AND users.rating >= :rating"
+
+      @games = Game.joins(:user).joins(:time_control).where(sql_query,
+                                        address: "%#{params[:address]}%",
+                                        time_control: "%#{params[:time_control]}%",
+                                        rating: MATCH_HASH[params[:rating]] || 0)
+    else
+      @games = policy_scope(Game).where.not(latitude: nil, longitude: nil)
+    end
     @markers = @games.map do |game|
       {
         lng: game.longitude,
