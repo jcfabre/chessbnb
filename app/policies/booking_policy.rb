@@ -18,7 +18,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user  # Anyone can create a booking
+    record.user == user # Anyone can create a booking
   end
 
   def update?

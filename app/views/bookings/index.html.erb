@@ -15,10 +15,13 @@
 
     <ul class="inbox">
       <% @bookings.each do |booking| %>
+        <%= link_to booking_path(booking) do %>
+          <span class="top-link"></span>
+        <% end %>
         <li class="message">
-          <img src="images/gab.png" alt="" class="avatar-large">
+          <%= cl_image_tag(booking.game.user.photo, :gravity=>"face", :width=>30, :height=>30, :crop=>"thumb", class: "avatar-resizable") %>
           <div class="message-name">
-            <h3><%= booking.user.first_name %></h3>
+            <h3><%= booking.game.user.first_name %></h3>
             <p><%= booking.game.start_date %></p>
           </div>
           <div class="message-body">
