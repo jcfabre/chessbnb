@@ -10,10 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ca7dc9d97ef80d5a1f89652958a2f80f0a3944ac
 ActiveRecord::Schema.define(version: 2018_11_29_132053) do
 
   # These are extensions that must be enabled in order to support this database
