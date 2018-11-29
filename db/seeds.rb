@@ -45,7 +45,7 @@ user3.save!
   User.create!(
     first_name: first_name,
     last_name: last_name,
-    remote_photo_url: "https://secure.i.telegraph.co.uk/multimedia/archive/02630/Carissa-Yip_2630479b.jpg",
+    remote_photo_url: "https://cdn1.thr.com/sites/default/files/imagecache/scale_crop_768_433/2018/01/the_terminator_still.jpg",
     email: Faker::Internet.email("#{first_name} #{last_name}" , '.'),
     password: 'valid_password'
   )
