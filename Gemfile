@@ -22,6 +22,12 @@ gem 'devise'
 gem 'pundit'
 gem "geocoder"
 
+gem 'pg_search'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'jquery-rails'
+gem 'momentjs-rails', '>= 2.9'
+gem 'bootstrap-timepicker-rails'
+
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 
