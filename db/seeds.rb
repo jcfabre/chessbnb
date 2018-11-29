@@ -17,7 +17,7 @@ user1 = User.new(email: "jcharlesfabre@gmail.com",
                 rating: 1700,
                 first_name: "jc",
                 last_name: "fabre",
-                remote_photo_url: "https://media.licdn.com/dms/image/C5603AQFuzemgK3RraA/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=KG9iHP1L2g5AIfRtI0lwm21ybixd_hMbK5-v-jdg4i4")
+                remote_photo_url: "https://fr.wikipedia.org/wiki/Yu_Yangyi#/media/File:Yu_Yangyi_2012.jpg")
 user1.password = 'valid_password'
 user1.password_confirmation = 'valid_password'
 user1.save!
@@ -26,7 +26,7 @@ user2 = User.new(email: "toto@gmail.com",
   first_name: "toto",
   last_name: "Alfred",
   rating: 1550,
-  remote_photo_url: "https://www.films-disney.fr/wp-content/uploads/2018/05/dumbo.jpg"
+  remote_photo_url: "https://chessbase.in/images/20161003_pic_0953_jpg"
 )
 user2.password = 'valid_password'
 user2.password_confirmation = 'valid_password'
@@ -38,7 +38,7 @@ user3 = User.new(
   first_name: "connor",
   last_name: "bubbles",
   rating: 2300,
-  remote_photo_url:"https://cdn1.thr.com/sites/default/files/imagecache/scale_crop_768_433/2018/01/the_terminator_still.jpg"
+  remote_photo_url:"https://en.wikipedia.org/wiki/Naz%C3%AD_Paikidze#/media/File:Nazi_Paikidze.jpg"
 )
 user3.password = 'ikv.q7KT_hS)'
 user3.password_confirmation = 'ikv.q7KT_hS)'
@@ -52,7 +52,7 @@ user3.save!
     first_name: first_name,
     last_name: last_name,
     rating: rand(1001..2835),
-    remote_photo_url: "https://cdn1.thr.com/sites/default/files/imagecache/scale_crop_768_433/2018/01/the_terminator_still.jpg",
+    remote_photo_url: "https://cdn2.listsoplenty.com/listsoplenty-cdn/uploads/2011/06/kateryna_lahno.jpg",
     email: Faker::Internet.email("#{first_name} #{last_name}" , '.'),
     password: 'valid_password'
   )
@@ -62,7 +62,7 @@ user3.save!
       title: Faker::GreekPhilosophers.quote,
       address: addresses.shuffle[1],
       description: Faker::Lorem.paragraph(2, true),
-      remote_photo_url: "http://paris1900.lartnouveau.com/paris14/parc_montsouris/accueil/1p_monts5.jpg",
+      remote_photo_url: "https://new.uschess.org/wp-content/uploads/2017/06/fabir3.jpg",
       start_date: Time.now.to_datetime,
       end_date: Time.now.to_datetime.end_of_day
     )
