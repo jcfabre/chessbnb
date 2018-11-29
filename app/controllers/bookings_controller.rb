@@ -15,6 +15,9 @@ class BookingsController < ApplicationController
   end
 
   def show
+    authorize @booking
+    @game_owner = @booking.game.user
+    @challenger = @booking.user
   end
 
   def destroy
