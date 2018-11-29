@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :first_name, :last_name, presence: true, allow_blank: false
+  validates :rating, inclusion: { in: 1000..3000, message: 'The rating must be between 1000 and 3000' }
 
   has_many :games
   has_many :bookings

@@ -45,7 +45,8 @@ class GamesController < ApplicationController
     @markers = @games.map do |game|
       {
         lng: game.longitude,
-        lat: game.latitude
+        lat: game.latitude,
+        infoWindow: render_to_string(partial: "../views/shared/infowindow", locals: { game: game })
       }
     end
   end
