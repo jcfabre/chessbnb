@@ -12,56 +12,7 @@
       <% end %>
     </div>
     <div class="row card-box">
-    <% @games.each do |game| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <%= link_to game_path(game) do %>
-            <span class="card-link"></span>
-          <% end %>
-            <div class="card-profile">
-              <%= cl_image_tag game.user.photo,:crop=>"thumb", class: "avatar-xl", alt: "alttext" %>
-            </div>
-            <div class="card-description">
-              <div class="description-name">
-                <ul class="list-inline">
-                  <li class="chess-piece">
-                    <% if game.user.rating < 1500 %>
-                      <i class="fas fa-chess-pawn"></i>
-                    <% elsif game.user.rating < 1800 %>
-                      <i class="fas fa-chess-knight"></i>
-                    <% elsif game.user.rating < 2000 %>
-                      <i class="fas fa-chess-bishop"></i>
-                    <% elsif game.user.rating < 2300 %>
-                      <i class="fas fa-chess-rook"></i>
-                    <% elsif game.user.rating < 2500 %>
-                      <i class="fas fa-chess-queen"></i>
-                    <% else %>
-                      <i class="fas fa-chess-king"></i>
-                    <% end %>
-                  </li>
-                  <li><%= game.user.first_name %> </li>
-                </ul>
-              </div>
-              <div class="description-details">
-                <ul class="list-inline">
-                  <li>
-                    <% if game.time_control.name == "Blitz" %>
-                      <i class="fas fa-bolt orange"></i>
-                      <i class="fas fa-bolt orange"></i>
-                      <i class="fas fa-bolt orange"></i>
-                    <% elsif game.time_control.name == "Rapid" %>
-                      <i class="fas fa-bolt orange"></i>
-                      <i class="fas fa-bolt orange"></i>
-                    <% else %>
-                      <i class="fas fa-bolt orange"></i>
-                    <% end %>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </div>
-      </div>
-    <% end %>
+      <%= render "shared/games_cards" %>
     </div>
   </div>
   <div id="map" style="width: 100%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
