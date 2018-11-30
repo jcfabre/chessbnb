@@ -1,7 +1,7 @@
 <div class="container login">
   <div class="row">
     <div class="col-sm-offset-1 col-sm-2">
-    <%= cl_image_tag(@user.photo, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb", class: "avatar-resizable padding-top-base") %>
+    <%= cl_image_tag(@user.photo, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb", class: "avatar-resizable") %>
     <h1 style="color: #FF6334"><%= @user.full_name.capitalize %></h1>
     </div>
 
