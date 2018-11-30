@@ -26,7 +26,7 @@ user2 = User.new(email: "toto@gmail.com",
   first_name: "toto",
   last_name: "Alfred",
   rating: 1550,
-  remote_photo_url: "https://fr.wikipedia.org/wiki/Yu_Yangyi#/media/File:Yu_Yangyi_2012.jpg"
+  remote_photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Yu_Yangyi_2012.jpg/800px-Yu_Yangyi_2012.jpg"
 )
 user2.password = 'valid_password'
 user2.password_confirmation = 'valid_password'
@@ -52,7 +52,7 @@ user3.save!
     first_name: first_name,
     last_name: last_name,
     rating: rand(1001..2835),
-    remote_photo_url: "https://new.uschess.org/wp-content/uploads/2017/06/fabir3.jpg",
+    remote_photo_url: "https://cdn.cnn.com/cnnnext/dam/assets/181128205455-magnus-carlsen-super-tease.jpg",
     email: Faker::Internet.email("#{first_name} #{last_name}" , '.'),
     password: 'valid_password'
   )
@@ -62,7 +62,7 @@ user3.save!
       title: Faker::GreekPhilosophers.quote,
       address: addresses.shuffle[1],
       description: Faker::Lorem.paragraph(2, true),
-      remote_photo_url: "https://en.wikipedia.org/wiki/Almira_Skripchenko#/media/File:ASkripchenko10.jpg",
+      remote_photo_url: "https://cdn.cnn.com/cnnnext/dam/assets/181128205455-magnus-carlsen-super-tease.jpg",
       start_date: Time.now.to_datetime,
       end_date: Time.now.to_datetime.end_of_day
     )
