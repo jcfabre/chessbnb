@@ -20,4 +20,33 @@
   margin-bottom: 30px;
 }
 
+.banner-booking {
+  color: white;
+  text-align: center;
+  height: calc(70vh - 70px);
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.pin-top {
+  position: absolute;
+  top: 10px;
+}
+
+.box-games {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+  margin: 0px;
+}
+
+.cta-banner {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin: 15px;
+}
 

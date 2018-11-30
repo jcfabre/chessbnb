@@ -1,0 +1,24 @@
+.grid-booking {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30% 40% 40%;
+}
+
+.element-img-game {
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 1;
+}
+
+.element-description {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+}
+.element-img-players {
+  grid-row: 1 / span 2;
+  grid-column: 2 / span 1;
+}
+
+.element-game-time {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
+}

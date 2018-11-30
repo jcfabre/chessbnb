@@ -25,12 +25,13 @@
             <p><%= booking.game.start_date %></p>
           </div>
           <div class="message-body">
-            <p><strong><%= booking.game.title %></strong></p>
+            <p class="orange"><strong><%= link_to booking.game.title, booking_path(booking) %></strong></p>
             <p><%= booking.game.description %></p>
             <p>Addresse: <%= booking.game.address %></p>
           </div>
           <div class="message-status">
-            <p ><%= link_to 'Delete', booking_path(booking), :method => :delete, data: {:confirm => "Are you sure?"}, class: "btn btn-danger"%></p>
+            <p ><%= link_to 'Delete', booking_path(booking), :method => :delete, data: {:confirm => "Are you sure?"}, class: "btn btn-primary"%></p>
+          </div>
           </div>
         </li>
       <% end %>
