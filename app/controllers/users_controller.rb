@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :index]
 
   def show
-    @user = current_user
+    # @user = current_user
+
     authorize @user
   end
 
