@@ -1,70 +1,67 @@
-<div class="booking-container">
-  <div class="container margin-top">
+<div class="container login">
+  <div class="container">
+
     <div class="row">
+      <div class="col-xs-12 banner-booking" style="background-image: linear-gradient(-225deg,rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path @booking.game.photo %>);">
+        <h1 class="pin-left"><%= @booking.game.title %></h1>
 
-      <div class="col-xs-12 col-sm-8">
-
-        <%= cl_image_tag @booking.game.photo, class: "map make-fit"%>
-
-        <div class="booking-show-card text-align-center">
-          <h4> Game Title: <%= @booking.game.title %></h4>
-          <p> Game Address: <em><%= @booking.game.address %></em> </p>
-          <p> Game Description: <%= @booking.game.description %></p>
+        <div>
+          <p> GAME OWNER </p>
+          <%= cl_image_tag(@game_owner.photo, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb", class: "avatar-resizable") %>
+          <p> <%= @game_owner.full_name %></p>
         </div>
 
-        <div class="booking-show-card flexbox">
+        <h1> VS </h1>
 
-          <div class="player-info">
-            <h2> GAME OWNER </h2>
-            <%= cl_image_tag(@game_owner.photo, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb", class: "avatar-resizable") %>
-            <p> <%= @game_owner.full_name %></p>
-          </div>
-
-          <div class="player-info">
-            <h2> VS </h2>
-          </div>
-
-           <div class="player-info">
-            <h2> CHALLENGER </h2>
-            <%= cl_image_tag(@challenger.photo, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb", class: "avatar-resizable") %>
-            <p> <%= @challenger.full_name %></p>
-          </div>
-
+        <div>
+          <p> CHALLENGER </p>
+          <%= cl_image_tag(@challenger.photo, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb", class: "avatar-resizable") %>
+          <p> <%= @challenger.full_name %></p>
         </div>
-
-        <div class="booking-show-card flexbox">
-
-          <div class="booking-info">
-            <ul>
-              <li><strong>Time control: </strong> <%= @booking.game.time_control.name %></li>
-              <li>
-                <% if @booking.game.time_flexible %>
-                  <span> <strong>Flexible on time: </strong> </span> <i class='fas fa-check'></i>
-                  <% else %>
-                  <span> <strong>Flexible on time: </strong> </span> <i class="fas fa-times"></i>
-                <% end %>
-                </li>
-              <li><strong>Start date: </strong><%= @booking.game.start_date %></li>
-              <li><strong>End date: </strong><%= @booking.game.end_date %></li>
-            </ul>
-          </div>
-
-          <% @booking.reviews.each do |review| %>
-            <div class="col-xs-4 col-sm-6">
-              <div class="message-review">
-                <ul>
-                  <li><strong>Rating: </strong> <%= review.rating %></li>
-                  <li><strong>Content: </strong> <%= review.content %></li>
-                </ul>
-              </div>
-            </div>
-          <% end %>
-
-        </div>
-
       </div>
     </div>
+
+<!--   <div class="row">
+      <div class="inbox-profile-without-margin">
+        <p> Game Address: <em><%= @booking.game.address %></em> </p>
+        <p> Game Description: <%= @booking.game.description %></p>
+      </div>
+
+      <div class="inbox-profile-without-margin">
+        <ul>
+          <li><strong>Time control: </strong> <%= @booking.game.time_control.name %></li>
+          <li>
+            <% if @booking.game.time_flexible %>
+              <span> <strong>Flexible on time: </strong> </span> <i class='fas fa-check'></i>
+              <% else %>
+              <span> <strong>Flexible on time: </strong> </span> <i class="fas fa-times"></i>
+            <% end %>
+            </li>
+          <li><strong>Start date: </strong><%= @booking.game.start_date %></li>
+          <li><strong>End date: </strong><%= @booking.game.end_date %></li>
+        </ul>
+      </div>
+    </div>
+  </div> -->
+
+  <div>
+    <h1 class="text-align-center"> Reviews </h1>
+    <% @booking.reviews.each do |review| %>
+      <div class="message-review">
+        <ul>
+          <li><strong>Rating: </strong> <%= review.rating %></li>
+          <li><strong>Content: </strong> <%= review.content %></li>
+        </ul>
+      </div>
+    <% end %>
+    <div class="cta-banner">
+      <%= link_to "Add a review",new_booking_review_path(@booking), class: "btn btn-primary" %>
+    </div>
+
   </div>
 
-</div>
+
+
+
+  </div>
 </div>
