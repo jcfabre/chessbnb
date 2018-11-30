@@ -10,10 +10,12 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user # Only user can update its profil
+    record == user # Only user can update its profil
   end
 
   def update?
-    record.user == user # Only user can update its profil
+    record == user # Only user can update its profil
   end
 end
+
+
