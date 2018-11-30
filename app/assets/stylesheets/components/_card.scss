@@ -90,3 +90,27 @@
   justify-content: center;
   align-items: center;
 }
+
+.card-feature-2 {
+  height: 150px;
+  margin: 10px;
+  box-shadow: 2px 1px 9px rgba(0, 0, 0, 0.5);
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-feature-2 h2{
+  font-weight: bold;
+  color: #FF6334;
+  text-align: left;
+  // padding-top: 10px;
+  // padding-left: px;
+}
+
+.card-feature-2 p{
+  text-align: left;
+  padding-top: 35px;
+  padding-left: 100px;
+}
