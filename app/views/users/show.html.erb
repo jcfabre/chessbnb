@@ -1,5 +1,5 @@
 <div class="container login">
-  <div class="row">
+  <div class="row" style ="margin-top: 15px;">
     <div class="col-sm-offset-1 col-sm-2">
     <%= cl_image_tag(@user.photo, :gravity=>"face", :width=>150, :height=>150, :crop=>"thumb", class: "avatar-resizable") %>
     <h1 style="color: #FF6334"><%= @user.full_name.capitalize %></h1>
@@ -13,22 +13,26 @@
             <p style="color: grey">
             Hi, I'm <%= @user.first_name.capitalize %>! I just moved to Paris and I missed playing chess in real life. I was getting tired of beating random stranger online and then I stumbled upon this amazing website! If you love playing chess too you're most welcome to come and play with me in real life !
             </p>
-            <p ><%= link_to 'Edit profile', edit_user_path(@user), class: "btn btn-primary"%></p>
+        <!--     <p ><%= link_to 'Edit profile', edit_user_path(@user), class: "btn btn-primary"%></p> -->
           </div>
       </ul>
     </div>
 
-    <div class="col-sm-offset-1 col-sm-10">
-      <h2> Reviews </h2>
-      <% @user.bookings.each do |booking| %>
-        <% booking.reviews.each do |review| %>
-          <div class="message-review" style="margin-bottom: 30px;">
-              <p style="color: black"><strong>Rating: </strong> <%= review.rating %></p>
-              <p style="color: grey"><strong>Content: </strong> <%= review.content %></p>
-          </div>
+    <% if @user.bookings.empty? %>
+      <span></span>
+    <% else %>
+      <div class="col-sm-offset-1 col-sm-10">
+        <h2> Reviews </h2>
+        <% @user.bookings.each do |booking| %>
+          <% booking.reviews.each do |review| %>
+            <div class="message-review" style="margin-bottom: 30px;">
+                <p style="color: black"><strong>Rating: </strong> <%= review.rating %></p>
+                <p style="color: grey"><strong>Content: </strong> <%= review.content %></p>
+            </div>
+          <% end %>
         <% end %>
+      </div>
     <% end %>
-    </div>
 
   </div>
 </div>

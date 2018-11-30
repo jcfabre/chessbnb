@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @game_owner = @booking.game.user
     @challenger = @booking.user
+    @reviews = @booking.reviews
   end
 
   def destroy
