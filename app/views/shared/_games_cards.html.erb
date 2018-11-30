@@ -1,7 +1,6 @@
 <% @games.each do |game| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(-225deg,rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path game.photo %>);">
-   <!--      <div class="card" style="background-image: linear-gradient(-225deg,rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 50%), url(<%= cl_image_path game.photo %>);"> -->
+        <div class="card" style="background-image: linear-gradient(-225deg,rgba(0,101,168,0.5) 0%, rgba(0,36,61,0.5) 50%), url(<%= cl_image_path game.photo %>);">
           <%= link_to game_path(game) do %>
             <span class="card-link"></span>
           <% end %>
