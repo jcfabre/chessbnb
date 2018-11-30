@@ -15,20 +15,7 @@
   <% else %>
     <div class="row">
       <h1 class = "centered"> The games you host </h1>
-      <% @games.each do |game| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: url('<%= cl_image_path game.photo, height: "300", width: "400", quality:"auto:low"%>')">
-            <%= link_to game_path(game) do %>
-              <span class="top-link"></span>
-            <% end %>
-              <div class="card-category"><%= game.user.first_name %></div>
-              <div class="card-description">
-                <h2><%= game.title %></h2>
-                <p><%= game.description %></p>
-              </div>
-          </div>
-        </div>
-      <% end %>
+      <%= render "shared/games_cards" %>
     </div>
 
   <% end %>

@@ -22,31 +22,137 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Propose a game", new_game_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Games", list_games_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <% if controller?("games") && action?("index") %>
+
+        <%= link_to new_game_path, class: "navbar-wagon-item navbar-wagon-link" do %><i class="far fa-plus-square"></i> Host a game<% end %>
+
+        <%= link_to games_path, class: "navbar-wagon-item navbar-wagon-link current-link" do %><i class='fas fa-search'></i> Find games<% end %>
+
+      <% elsif controller?("games") && action?("new") %>
+
+        <%= link_to new_game_path, class: "navbar-wagon-item navbar-wagon-link current-link" do %><i class="far fa-plus-square"></i> Host a game<% end %>
+
+        <%= link_to games_path, class: "navbar-wagon-item navbar-wagon-link" do %><i class='fas fa-search'></i> Find games<% end %>
+
+      <% else %>
+
+        <%= link_to new_game_path, class: "navbar-wagon-item navbar-wagon-link" do %><i class="far fa-plus-square"></i> Host a game<% end %>
+
+        <%= link_to games_path, class: "navbar-wagon-item navbar-wagon-link" do %><i class='fas fa-search'></i> Find games<% end %>
+
+      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= cl_image_tag(current_user.photo, :width=>30, :height=>30, :gravity=>"face", :crop=>"thumb", class: "avatar-resizable dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "My Profile") %>
-              <% end %>
-            </li>
-          <!--   <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li> -->
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
+          <% if current_user.photo.url.present? %>
+            <%= cl_image_tag(current_user.photo, :width=>30, :height=>30, :gravity=>"face", :crop=>"thumb", class: "avatar-resizable dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
+          <% else %>
+            <%= image_tag "Bobby_Fischer.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
+
+          <% if controller?("users") && user_path(current_user) && action?("show") %>
+
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" >
+              <li>
+                <%= link_to user_path(current_user), class: "navbar-wagon-dropdown-menu-current" do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "  My Profile") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to list_games_path do %>
+                  <i class="fas fa-home"></i>  <%= t(".list_games", default: "  My Games") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to bookings_path do %>
+                  <i class="fas fa-bookmark"></i>  <%= t(".bookings", default: "  My Bookings") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "  Log out") %>
+                <% end %>
+              </li>
+            </ul>
+
+          <% elsif controller?("games") && action?("list") %>
+
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "  My Profile") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to list_games_path, class: "navbar-wagon-dropdown-menu-current" do %>
+                  <i class="fas fa-home"></i>  <%= t(".list_games", default: "  My Games") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to bookings_path do %>
+                  <i class="fas fa-bookmark"></i>  <%= t(".bookings", default: "  My Bookings") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "  Log out") %>
+                <% end %>
+              </li>
+            </ul>
+
+          <% elsif controller?("bookings") && action?("index") %>
+
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "  My Profile") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to list_games_path do %>
+                  <i class="fas fa-home"></i>  <%= t(".list_games", default: "  My Games") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to bookings_path, class: "current-link" do %>
+                  <i class="fas fa-bookmark"></i>  <%= t(".bookings", default: "  My Bookings") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "  Log out") %>
+                <% end %>
+              </li>
+            </ul>
+
+            <% else %>
+
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <li>
+                  <%= link_to user_path(current_user) do %>
+                    <i class="fa fa-user"></i> <%= t(".profile", default: "  My Profile") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to list_games_path do %>
+                    <i class="fas fa-home"></i>  <%= t(".list_games", default: "  My Games") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to bookings_path do %>
+                    <i class="fas fa-bookmark"></i>  <%= t(".bookings", default: "  My Bookings") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "  Log out") %>
+                  <% end %>
+                </li>
+              </ul>
+
+            <% end %>
         </div>
       </div>
     <% else %>

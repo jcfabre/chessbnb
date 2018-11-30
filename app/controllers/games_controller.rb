@@ -7,6 +7,11 @@ class GamesController < ApplicationController
     @user = @game.user
     @booking = Booking.new
     authorize @game
+    @markers = {
+        lng: @game.longitude,
+        lat: @game.latitude,
+        infoWindow: render_to_string(partial: "../views/shared/infowindow", locals: { game: @game })
+      }
   end
 
   def edit

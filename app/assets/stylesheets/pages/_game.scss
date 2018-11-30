@@ -7,6 +7,41 @@
   border-radius: 2px;
 }
 
+
+.game-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  padding: 15px;
+  width: 100%;
+}
+
+.game-date {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.game-time-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  padding: 15px;
+  width: 100%;
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile-invit {
+  font-size: 30px;
+}
+
 .wrapper {
   background: white;
 }

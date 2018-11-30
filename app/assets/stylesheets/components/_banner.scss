@@ -1,7 +1,8 @@
 .banner {
   color: white;
   text-align: center;
-  height: calc(100vh - 70px);
+  height: 100vh;
+  // height: calc(90vh - 70px);
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -19,7 +20,6 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
-
 .banner-booking {
   color: white;
   text-align: center;
@@ -50,3 +50,42 @@
   margin: 15px;
 }
 
+.content-description {
+  height: 200px;
+  margin: 10px;
+  // box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+.content-description h1 {
+  font-size: 45px;
+  font-weight: bold;
+  color: #FF6334;
+  text-align: center;
+  padding-top: 20px;
+}
+.content-description p {
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+}
+.icon-home {
+  color: #FF6334;
+  font-size: 50px;
+}
+.lcol {
+  display: inline-block;
+  vertical-align: top;
+}
+.wrapper-white {
+  margin: 0 auto;
+  width: 100%;
+  background: white;
+}
+.container-testimonies {
+  text-align: center;
+  padding-top: 30px;
+  background-color: rgb(230, 230, 230);
+}

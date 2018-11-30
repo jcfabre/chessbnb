@@ -5,7 +5,7 @@
     <h1 style="color: #FF6334"><%= @user.full_name.capitalize %></h1>
     </div>
 
-    <div class="col-sm-7">
+    <div class="col-sm-8">
       <ul class="inbox-profile">
         <li class="message-profile">
           <div>
@@ -13,7 +13,7 @@
             <p style="color: grey">
             Hi, I'm <%= @user.first_name.capitalize %>! I just moved to Paris and I missed playing chess in real life. I was getting tired of beating random stranger online and then I stumbled upon this amazing website! If you love playing chess too you're most welcome to come and play with me in real life !
             </p>
-            <p ><%= link_to 'Edit profile', edit_user_path(@user), :method => :edit, class: "btn btn-primary"%></p>
+            <p ><%= link_to 'Edit profile', edit_user_path(@user), class: "btn btn-primary"%></p>
           </div>
       </ul>
     </div>
