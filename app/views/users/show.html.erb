@@ -18,5 +18,17 @@
       </ul>
     </div>
 
+    <div class="col-sm-offset-1 col-sm-10">
+      <h2> Reviews </h2>
+      <% @user.bookings.each do |booking| %>
+        <% booking.reviews.each do |review| %>
+          <div class="message-review" style="margin-bottom: 30px;">
+              <p style="color: black"><strong>Rating: </strong> <%= review.rating %></p>
+              <p style="color: grey"><strong>Content: </strong> <%= review.content %></p>
+          </div>
+        <% end %>
+    <% end %>
+    </div>
+
   </div>
 </div>
