@@ -28,6 +28,7 @@ user1 = User.create!(email: "paul@cheam.io",
                 password_confirmation: 'password'
                 )
 
+
 user_attributes = [
   {profile_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543569551/images_12.jpg",
   game_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543572479/images_26.jpg",
@@ -84,10 +85,6 @@ user_attributes = [
   {profile_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543569555/download_10.jpg",
   game_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543572483/images_16.jpg",
   address: "19 Rue Sommeiller, 74000 Annecy"},
-
-  {profile_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543569556/images_2.jpg",
-  game_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543572756/download_18.jpg",
-  address: "2 Chemin de la Colline, 74940 Annecy"},
 
   {profile_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543569556/images_1.jpg",
   game_photo: "https://res.cloudinary.com/doojphhb7/image/upload/v1543572484/images_14.jpg",
@@ -148,4 +145,25 @@ user_attributes.each do |attribute|
   game.time_control = array_time_control.shuffle[0]
   game.save!
 end
+
+user2 = User.create!(email: "paula@cheam.io",
+                rating: 2300,
+                first_name: "Mammie",
+                last_name: "Grannie",
+                remote_photo_url: "https://res.cloudinary.com/doojphhb7/image/upload/v1543569556/images_2.jpg",
+                password: 'password',
+                password_confirmation: 'password'
+                )
+
+ game = Game.new(
+    title: "Chess and cookies afternoon in Annecy",
+    address: "2 Chemin de la Colline, 74940 Annecy",
+    description: "Come to my house play chess. I'll make some cookies :)",
+    remote_photo_url: "https://res.cloudinary.com/doojphhb7/image/upload/v1543572756/download_18.jpg",
+    start_date: Time.now.to_datetime,
+    end_date: Time.now.to_datetime.end_of_day
+  )
+  game.user = user2
+  game.time_control = array_time_control.shuffle[0]
+  game.save!
 

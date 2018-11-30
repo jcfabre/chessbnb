@@ -33,6 +33,13 @@
       </div>
     </div>
 
+    <h2> Reviews </h2>
+    <% @reviews.each do |review| %>
+        <div class="message-review" style="margin-bottom: 30px;">
+          <p style="color: black"><strong>Rating: </strong> <%= review.rating %></p>
+          <p style="color: grey"><strong>Content: </strong> <%= review.content %></p>
+        </div>
+      <% end %>
 
 
   </div>
