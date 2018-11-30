@@ -30,13 +30,16 @@
   // align-items: center;
 }
 .content-description h1 {
-  font-size: 25px;
-  font-weight: lighter;
+  font-size: 45px;
+  font-weight: bold;
   color: #FF6334;
+  text-align: center;
+  padding-top: 20px;
 }
 .content-description p {
   font-size: 20px;
   font-weight: lighter;
+  text-align: center;
 }
 .icon-home {
   color: #FF6334;
@@ -45,4 +48,14 @@
 .lcol {
   display: inline-block;
   vertical-align: top;
+}
+.wrapper-white {
+  margin: 0 auto;
+  width: 100%;
+  background: white;
+}
+.container-testimonies {
+  text-align: center;
+  padding-top: 30px;
+  background-color: rgb(230, 230, 230);
 }
