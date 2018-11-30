@@ -1,42 +1,23 @@
 <div class="game-container">
   <%= cl_image_tag @game.photo, class: "map make-fit"%>
-  <div class="container margin-top-negative">
+  <div class="container">
 
     <div class="row">
 
       <div class="col-xs-12 col-sm-8">
-
-        <div class="game-show-card text-align-center">
-          <h4> <%= @game.title %></h4>
-          <p> Address: <em><%= @game.address %></em> </p>
-          <p> <%= @game.description %></p>
-        </div>
-
-        <div class="game-show-card flexbox">
-
+        <div class="game-show-card">
           <div class="player-info">
-            <%= image_tag "Bobby_Fischer.jpg", alt: "alttext", class: "avatar-large" %>
-            <p> <%= @user.full_name %></p>
-          </div>
+            <div class="profile-pic">
+              <%= cl_image_tag @game.user.photo, alt: "alttext", class: "avatar-xl "%>
+            </div>
 
-          <div class="game-info">
-            <ul>
-              <li><strong>Time control: </strong> <%= @game.time_control.name %></li>
-              <li>
-                <% if @game.time_flexible %>
-                  <span> <strong>Flexible on time: </strong> </span> <i class='fas fa-check'></i>
-                  <% else %>
-                  <span> <strong>Flexible on time: </strong> </span> <i class="fas fa-times"></i>
-                <% end %>
-                </li>
-              <li><strong>Start date: </strong><%= @game.start_date %></li>
-              <li><strong>End date: </strong><%= @game.end_date %></li>
-            </ul>
+            <div class="profile-invit">
+              <p> <strong> <%= link_to @game.user.first_name, user_path(@game.user)%> </strong>  is ready to play with you</p>
+            </div>
           </div>
-
         </div>
-
       </div>
+
       <div class="col-xs-12 col-sm-4">
         <div class="game-show-card text-align-center">
           <% if user_signed_in? && @user != current_user%>
@@ -52,8 +33,81 @@
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
 
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="game-show-card description-section">
+
+          <div class="description">
+            <p class="text-align-center" style="font-size: 24px;"> <%= @game.title %></p>
+            <p class="text-align-center" style="font-size: 16px;"> <%= @game.description %></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="game-show-card">
+          <div class="game-date">
+            <ul class="list-inline">
+              <li><i class="far fa-calendar-alt"></i></li>
+              <li><strong> <%= @game.start_date %></strong></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="game-show-card">
+            <div class="game-level">
+              <% if @game.user.rating < 1500 %>
+                <i class="fas fa-chess-pawn"></i>
+              <% elsif @game.user.rating < 1800 %>
+                <i class="fas fa-chess-knight"></i>
+              <% elsif @game.user.rating < 2000 %>
+                <i class="fas fa-chess-bishop"></i>
+              <% elsif @game.user.rating < 2300 %>
+                <i class="fas fa-chess-rook"></i>
+              <% elsif @game.user.rating < 2500 %>
+                <i class="fas fa-chess-queen"></i>
+              <% else %>
+                <i class="fas fa-chess-king"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="game-show-card">
+            <div class="game-time-control">
+              <% if @game.time_control.name == "Blitz" %>
+                <i class="fas fa-bolt orange"></i>
+                <i class="fas fa-bolt orange"></i>
+                <i class="fas fa-bolt orange"></i>
+              <% elsif @game.time_control.name == "Rapid" %>
+                <i class="fas fa-bolt orange"></i>
+                <i class="fas fa-bolt orange"></i>
+              <% else %>
+                <i class="fas fa-bolt orange"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>
-</div>
+
+

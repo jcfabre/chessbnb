@@ -1,0 +1,38 @@
+.footer-home {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  bottom: 0;
+  width: 100%;
+  // position: sticky !important;
+}
+
+.container.login {
+  min-height: calc(100vh - 50px);
+}
+
+.footer-home-links {
+  display: flex;
+  align-items: center;
+}
+.footer-home-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0px 10px;
+}
+.footer-home-links a:hover {
+  opacity: 1;
+}
+.footer-home .fa-heart {
+  color: #D23333;
+}
+
+.footer-home-copyright {
+  font-size: 12px;
+}

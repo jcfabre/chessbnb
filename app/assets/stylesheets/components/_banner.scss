@@ -20,8 +20,44 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
+
+.booking-page {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+}
+.banner-booking {
+  color: white;
+  text-align: center;
+  height: calc(70vh - 70px);
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.pin-top {
+  position: absolute;
+  top: 10px;
+}
+
+.box-games {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+  margin: 0px;
+}
+
+.cta-banner {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin: 15px;
+}
+
 .content-description {
-  height: 200px;
   margin: 10px;
   // box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
   background-color: white;
@@ -54,10 +90,40 @@
   width: 100%;
   background: white;
 }
+
+.wrapper-grey {
+  margin: 0 auto;
+  width: 100%;
+  background: rgb(244, 244, 244);
+}
+
 .container-testimonies {
   text-align: center;
   padding-top: 30px;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(244, 244, 244);
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonies-content-description {
+  margin: 10px;
+  // box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  background-color: rgb(244, 244, 244);
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+.testimonies-content-description h1 {
+  font-size: 45px;
+  font-weight: bold;
+  color: #FF6334;
+  text-align: center;
+  padding-top: 20px;
+}
+.testimonies-content-description p {
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
 }
 
 #banner-typed-text {
